@@ -1552,10 +1552,6 @@ static const struct snd_kcontrol_new msm_snd_controls[] = {
 			pri_rx_sample_rate_get, pri_rx_sample_rate_put),
 	SOC_ENUM_EXT("MI2S_RX SampleRate", msm_snd_enum[3],
 			mi2s_rx_sample_rate_get, mi2s_rx_sample_rate_put),
-#ifdef CONFIG_MACH_WT88047
-	SOC_ENUM_EXT("Lineout_1 amp", msm_snd_enum[5],
-			lineout_status_get, lineout_status_put),
-#endif
 	SOC_ENUM_EXT("MI2S TX SampleRate", msm_snd_enum[4],
 			mi2s_tx_sample_rate_get, mi2s_tx_sample_rate_put),
 };
@@ -1583,8 +1579,8 @@ static int msm8x16_mclk_event(struct snd_soc_dapm_widget *w,
 	switch (event) {
 #ifdef CONFIG_MACH_CP8675
 	case SND_SOC_DAPM_PRE_PMU:
-		if (atomic_read(&pdata->mclk_rsc_ref) < 1)
-			return msm8x16_enable_codec_ext_clk(w->codec, 1, true);
+		if (pdata->codec_type)
+			msm8x16_enable_extcodec_ext_clk(w->codec, 1, true);
 		break;
 #endif
 	case SND_SOC_DAPM_PRE_PMU:
