@@ -267,25 +267,21 @@ int power_supply_set_low_power_state(struct power_supply *psy, int value)
 }
 EXPORT_SYMBOL(power_supply_set_low_power_state);
 
-#ifdef CONFIG_MACH_WT88047
-int power_supply_get_battery_charge_state(struct power_supply *psy)
+/**
+ * power_supply_set_dp_dm -
+ * @psy:	the power supply to control
+ * @value:	value to be passed to the power_supply
+ */
+int power_supply_set_dp_dm(struct power_supply *psy, int value)
 {
-	union power_supply_propval ret = {0,};
+	const union power_supply_propval ret = {value, };
 
-	if (!psy) {
-		pr_err("%s: power supply is NULL\n", __func__);
-		return 0;
-	}
-
-	if (psy->get_property)
-		psy->get_property(psy, POWER_SUPPLY_PROP_ONLINE, &ret);
-
-	pr_debug("%s: online: %d\n", __func__, ret.intval);
-
-	return ret.intval;
+	if (psy->set_property)
+		return psy->set_property(psy, POWER_SUPPLY_PROP_DP_DM,
+				&ret);
+	return -ENXIO;
 }
-EXPORT_SYMBOL(power_supply_get_battery_charge_state);
-#endif
+EXPORT_SYMBOL(power_supply_set_dp_dm);
 
 static int __power_supply_changed_work(struct device *dev, void *data)
 {
