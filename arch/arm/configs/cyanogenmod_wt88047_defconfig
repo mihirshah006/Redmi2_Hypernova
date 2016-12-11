@@ -672,13 +672,8 @@ CONFIG_INET_XFRM_MODE_TUNNEL=y
 CONFIG_INET_DIAG=y
 CONFIG_INET_TCP_DIAG=y
 # CONFIG_INET_UDP_DIAG is not set
-<<<<<<< HEAD:arch/arm/configs/cyanogenmod_wt88047_defconfig
-# CONFIG_TCP_CONG_ADVANCED is not set
-=======
-CONFIG_INET_DIAG_DESTROY=y
 CONFIG_TCP_CONG_ADVANCED=y
 CONFIG_TCP_CONG_BIC=y
->>>>>>> db5a25d... update defconfig for N:arch/arm/configs/wt88047_kernel_defconfig
 CONFIG_TCP_CONG_CUBIC=y
 CONFIG_DEFAULT_TCP_CONG="cubic"
 # CONFIG_TCP_MD5SIG is not set
