@@ -3197,7 +3197,7 @@ exit:
 	return rc;
 }
 
-static int msm_venc_set_csc(struct msm_vidc_inst *inst)
+int msm_venc_set_csc(struct msm_vidc_inst *inst)
 {
 	int rc = 0;
 	int count = 0;
