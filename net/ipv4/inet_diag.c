@@ -364,8 +364,6 @@ int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 	sk = inet_diag_find_one_icsk(net, hashinfo, req);
 	if (IS_ERR(sk))
 		return PTR_ERR(sk);
-
-	return sk;
 }
 EXPORT_SYMBOL_GPL(inet_diag_find_one_icsk);
 
@@ -382,6 +380,8 @@ int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 	sk = inet_diag_find_one_icsk(net, hashinfo, req);
 	if (IS_ERR(sk))
 		return PTR_ERR(sk);
+}
+EXPORT_SYMBOL_GPL(inet_diag_find_one_icsk);
 
 int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 			    struct sk_buff *in_skb,
@@ -396,6 +396,8 @@ int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 	sk = inet_diag_find_one_icsk(net, hashinfo, req);
 	if (IS_ERR(sk))
 		return PTR_ERR(sk);
+}
+EXPORT_SYMBOL_GPL(inet_diag_find_one_icsk);
 
 int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 			    struct sk_buff *in_skb,
