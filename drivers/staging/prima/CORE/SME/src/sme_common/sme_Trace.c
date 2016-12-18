@@ -241,4 +241,5 @@ void smeTraceInit(tpAniSirGlobal pMac)
 {
     vosTraceRegister(VOS_MODULE_ID_SME, (tpvosTraceCb)&smeTraceDump);
 }
+
 #endif

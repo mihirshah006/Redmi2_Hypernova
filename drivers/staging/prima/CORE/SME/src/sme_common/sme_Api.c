@@ -1421,9 +1421,6 @@ eHalStatus sme_Open(tHalHandle hHal)
 #endif
       sme_p2pOpen(pMac);
       smeTraceInit(pMac);
-#ifdef SME_TRACE_RECORD
-      sme_register_debug_callback();
-#endif
 
    }while (0);
 
